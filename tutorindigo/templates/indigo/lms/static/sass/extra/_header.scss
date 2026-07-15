@@ -29,6 +29,7 @@ header.global-header {
     border: none;
     padding: 0;
     overflow: visible;
+    background: $primary;
     box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.06), 0px 1px 3px 0px rgba(0, 0, 0, 0.10);
     &:after {
         content: "";
@@ -57,17 +58,13 @@ header.global-header {
             .logo {
                 height: 48px;
                 margin: 0;
-
-                body.indigo-dark-theme & {
-                    display: none;
-                }
+                // Header background is always the teal brand color now, so the
+                // dark logo variant is never legible here - always show the
+                // white logo instead, regardless of the light/dark theme toggle.
+                display: none;
             }
             .logo-white {
-                display: none;
-
-                body.indigo-dark-theme & {
-                    display: inline-block;
-                }
+                display: inline-block;
             }
         }
         .course-header {
@@ -84,12 +81,12 @@ header.global-header {
                     font-weight: 500;
                     line-height: 22px;
                     padding: 20px 0;
-                    color: $light-dark;
+                    color: rgba(255, 255, 255, 0.85);
                     margin: 0 16px 0 0;
                     border-bottom: 2px solid transparent;
                     &.active, &:hover {
-                        color: $dark;
-                        border-bottom: 2px solid $primary;
+                        color: #fff;
+                        border-bottom: 2px solid #fff;
                     }
                 }
             }
@@ -153,6 +150,18 @@ header.global-header {
                     }
                 }
             }
+            .btn-holder {
+                .register-btn, .sign-in-btn {
+                    background: $accent;
+                    border-color: $accent;
+                    color: $accent-text;
+                    &:hover, &:focus {
+                        background: $accent;
+                        color: $accent-text;
+                        opacity: .85;
+                    }
+                }
+            }
         }
     }
     .hamburger-menu {
@@ -167,6 +176,7 @@ header.global-header {
 
         .line {
             height: 2px;
+            background-color: #fff;
             &:nth-child(2), &:nth-child(3) {
                 top: 6px;
             }
@@ -225,7 +235,9 @@ header.global-header {
     .light-theme-icon, .dark-theme-icon{
         width: 18px;
         height: 1.5rem;
-        color: $primary;
+        // White, not $primary: this toggle lives on the teal header bar,
+        // where the teal icon color would be invisible.
+        color: #fff;
         & svg {
             width: inherit;
             height: inherit;

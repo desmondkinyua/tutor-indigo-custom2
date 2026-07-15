@@ -1,6 +1,10 @@
 $primary: {{ INDIGO_PRIMARY_COLOR }};
 $primary-light: #F2F7F8;
 
+// Amber accent used for CTA buttons (Register/Sign in, course search, etc.)
+$accent: #FFB400;
+$accent-text: #1F2933; // dark text - amber is too light for legible white text
+
 // Theme fonts
 $font-family-title: 'Inter', sans-serif;
 $serif: Crimson;

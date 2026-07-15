@@ -71,6 +71,19 @@ const BrandColorOverride = () => {
         --pgn-color-link-brand-inline-decoration: #FFB4004D !important;
         --pgn-color-link-brand-inline-hover-base: #7A5600FF !important;
         --pgn-color-link-brand-inline-hover-decoration: #7A5600FF !important;
+
+        /* Filled "primary"-variant buttons (Resume, Begin Course, search, etc.)
+           are amber too. Only the leaf tokens below are overridden - everything
+           else (header background, links, focus rings, outline-primary buttons)
+           still chains through --pgn-color-primary-* and stays teal. */
+        --pgn-color-btn-bg-primary: #FFB400FF !important;
+        --pgn-color-btn-hover-bg-primary: #E5A200FF !important;
+        --pgn-color-btn-hover-border-primary: #E5A200FF !important;
+        --pgn-color-btn-active-bg-primary: #CC9000FF !important;
+        --pgn-color-btn-active-border-primary: #CC9000FF !important;
+        --pgn-color-btn-text-primary: #1F2933FF !important;
+        --pgn-color-btn-hover-text-primary: #1F2933FF !important;
+        --pgn-color-btn-active-text-primary: #1F2933FF !important;
       }
 
       html[data-paragon-theme-variant='dark'] {

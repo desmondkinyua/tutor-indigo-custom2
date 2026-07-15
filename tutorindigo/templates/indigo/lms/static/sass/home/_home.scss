@@ -81,7 +81,7 @@ section.home {
                                 position: static;
                                 margin: 0 0 0 16px;
                                 min-width: 90px;
-                                color: #fff;
+                                color: $accent-text;
                                 font-size: 16px;
                                 font-weight: 500;
                                 line-height: 26px;
@@ -89,14 +89,14 @@ section.home {
                                 padding: 6px;
                                 height: 38px;
                                 border-radius: 6px;
-                                background: $primary;
+                                background: $accent;
                                 font-family: $font-family-title;
                                 border: none;
                                 @include media-breakpoint-up(sm) {
                                     min-width: 100px;
                                 }
                                 &:hover {
-                                    background: $primary;
+                                    background: $accent;
                                     opacity: .8;
                                 }
                             }

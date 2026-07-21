@@ -73,9 +73,9 @@ const BrandColorOverride = () => {
         --pgn-color-link-brand-inline-hover-decoration: #7A5600FF !important;
 
         /* Filled "primary"-variant buttons (Resume, Begin Course, search, etc.)
-           are amber too. Only the leaf tokens below are overridden - everything
-           else (header background, links, focus rings, outline-primary buttons)
-           still chains through --pgn-color-primary-* and stays teal. */
+           are amber too. Only the leaf tokens below are overridden - the header
+           background, links, and focus rings still chain through
+           --pgn-color-primary-* above and stay teal. */
         --pgn-color-btn-bg-primary: #FFB400FF !important;
         --pgn-color-btn-hover-bg-primary: #E5A200FF !important;
         --pgn-color-btn-hover-border-primary: #E5A200FF !important;
@@ -84,6 +84,25 @@ const BrandColorOverride = () => {
         --pgn-color-btn-text-primary: #1F2933FF !important;
         --pgn-color-btn-hover-text-primary: #1F2933FF !important;
         --pgn-color-btn-active-text-primary: #1F2933FF !important;
+
+        /* Outline-primary buttons (Refine, account-menu toggle) are amber too.
+           Default state uses a darker amber shade for contrast against a
+           transparent/white background (the bright amber above is only for
+           filled buttons, where dark text sits on top of it - here the amber
+           IS the text/border color, so it needs to be dark enough itself). */
+        --pgn-color-btn-text-outline-primary: #996C00FF !important;
+        --pgn-color-btn-border-outline-primary: #996C00FF !important;
+        --pgn-color-btn-hover-bg-outline-primary: #FFF9EBFF !important;
+        --pgn-color-btn-hover-border-outline-primary: #5C4000FF !important;
+        --pgn-color-btn-hover-text-outline-primary: #5C4000FF !important;
+        --pgn-color-btn-active-bg-outline-primary: #FFECBFFF !important;
+        --pgn-color-btn-active-border-outline-primary: #5C4000FF !important;
+
+        /* Icon-only buttons using variant="primary" (e.g. course-card kebab
+           menu). Background stays neutral/transparent - only the icon color
+           (and the tint of its hover/active circle, which chains from this
+           same token) changes. */
+        --pgn-color-icon-button-text-primary-base: #996C00FF !important;
       }
 
       html[data-paragon-theme-variant='dark'] {

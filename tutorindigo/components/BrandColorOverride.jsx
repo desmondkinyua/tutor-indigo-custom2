@@ -103,6 +103,12 @@ const BrandColorOverride = () => {
            (and the tint of its hover/active circle, which chains from this
            same token) changes. */
         --pgn-color-icon-button-text-primary-base: #996C00FF !important;
+
+        /* Accent-A is used for standalone highlighted text (e.g. the authn
+           app's "Start learning with ..." heading) - was still Paragon's
+           stock cyan. */
+        --pgn-color-accent-a: #FFB400FF !important;
+        --pgn-color-action-default-accent-a: #996C00FF !important;
       }
 
       html[data-paragon-theme-variant='dark'] {

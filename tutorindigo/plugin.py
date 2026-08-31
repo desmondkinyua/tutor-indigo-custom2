@@ -333,6 +333,26 @@ hooks.Filters.ENV_PATCHES.add_item(("mfe-lms-common-settings", fstring))
 
 
 @MFE_APPS.add()  # type: ignore
+def _use_custom_forks(
+    mfes: dict[str, MFE_ATTRS_TYPE],
+) -> dict[str, MFE_ATTRS_TYPE]:
+    # authn and learning are top-level MFE apps, not npm dependencies pulled
+    # into other apps' node_modules (like @edx/frontend-component-header,
+    # @edx/frontend-component-footer, and @edx/brand are). Tutor builds each
+    # one from its own `ADD --keep-git-dir=true <repository>#<version>` step,
+    # so pointing Tutor at a fork means overriding "repository"/"version"
+    # here directly - installing the fork as an npm package (as done for the
+    # header/footer/brand overrides) has no effect on this build step.
+    if "authn" in mfes:
+        mfes["authn"]["repository"] = "https://github.com/desmondkinyua/frontend-app-authn.git"
+        mfes["authn"]["version"] = "master"
+    if "learning" in mfes:
+        mfes["learning"]["repository"] = "https://github.com/desmondkinyua/frontend-app-learning-custom.git"
+        mfes["learning"]["version"] = "master"
+    return mfes
+
+
+@MFE_APPS.add()  # type: ignore
 def _add_themed_logo(
     mfes: dict[str, MFE_ATTRS_TYPE],
 ) -> dict[str, MFE_ATTRS_TYPE]:
